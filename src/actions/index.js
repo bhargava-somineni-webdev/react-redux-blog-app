@@ -28,6 +28,7 @@ export function fetchPost(id) {
 }
 
 export function createPost(values, callback) {
+    //callback here redirects user to the posts_list page, once a new post is create successfully
     const request = axios.post(`${ROOT_URL}/posts${API_KEY}`, values)
         .then(() => callback()
         );

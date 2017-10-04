@@ -11,6 +11,11 @@ class PostsShow extends Component {
 
     onDeleteClick() {
         const { id } = this.props.match.params;
+        //even though we have access to post in this.props.post, we are not using this.props.post.id
+        //instead we are fetching the id from url params using this.props.match.params
+        //reason being, sometimes the post is still being loaded and it is wrong approach 
+        //to expect the post is existing in the component state. Better get id from url 
+        //than expect post exists(or already loaded) and available for component, which cannot be always true
         this.props.deletePost(id, () => {
             this.props.history.push('/');
         });

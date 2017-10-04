@@ -29,7 +29,11 @@ ReactDOM.render(
   <Provider store={createStoreWithMiddleware(reducers)}>
     <BrowserRouter>
       <div>
+        {/*Header*/}
         <Switch>
+            {/*Reason we have /posts/:id as second route is, when user navigates to /posts/new
+            and if /posts/:id is first route, new is matched against the :id wildcard and  
+            react-router-dom loads /posts/:id instead of posts/new*/}
           <Route path="/posts/new" component={PostsNew} />
           <Route path="/posts/:id" component={PostsShow} />
           <Route path="/" component={PostsList} />

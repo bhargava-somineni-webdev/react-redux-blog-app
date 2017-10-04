@@ -15,7 +15,12 @@ export default function (state = {}, action) {
         case FETCH_POSTS:
             return _.mapKeys(action.payload.data, 'id');
         case DELETE_POST:
-            return _.omit(state, action.payload);
+        //we probably dont have to deal with this case, because once deleted,
+        //we redirect user to posts page where we fetch and load all the posts again.
+        //But sometimes users are on slow internet connection and inorder for them
+        //to not see the deleted post once redirected to posts page, we make sure to
+        //remove the posts from the local state            
+        return _.omit(state, action.payload);
         default:
             return state;
     }
