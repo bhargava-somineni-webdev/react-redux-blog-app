@@ -40,7 +40,7 @@ class PostsList extends Component {
       </div>
       //if our posts were an array instead of an object we would have called the map function directly
        //on our this.props.posts similar to weather app tutorial inside weather_list.js. 
-       //But since posts is made as an array, we instead use 
+       //But since posts is made as an object, we instead use 
        //lodash map function on the posts object inside renderPosts
     );
 
